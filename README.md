@@ -1,77 +1,96 @@
 # Text-Classification-System
-A Streamlit-based machine learning application for classifying software requirements using TF-IDF features and multiple classifiers including Naive Bayes, SVM, Random Forest, Decision Tree, and MLP.
 
-Software Requirements Classification using Machine Learning
+A Streamlit-based machine learning application for classifying software requirements using TF-IDF features and multiple classical ML classifiers.
 
-📌 Project Overview
-This project implements a machine learning–based text classification system that classifies software requirement descriptions into predefined Requirement Types.
-The system is built using classical machine learning algorithms and deployed through a Streamlit web interface for interactive prediction.
+---
 
+## 📌 Project Overview
 
-📂 Dataset
+This project implements a **machine learning–based text classification system** that classifies software requirement descriptions into predefined **Requirement Types**.
 
-File: Dataset.csv
-Text Feature: Requirement
-Target Label: Requirement Type
-Additional Columns: Scenario, Author (not used in training)
+The system uses classical NLP and ML techniques and is deployed using a **Streamlit web interface** to allow interactive, real-time predictions.
 
-⚙️ Technologies Used
+---
 
-Python
-Pandas
-Scikit-learn
-Streamlit
-TF-IDF Vectorization
+## 📂 Dataset
 
-🧠 Methods and Approach
+* **File Name:** `Dataset.csv`
+* **Text Feature:** `Requirement`
+* **Target Label:** `Requirement Type`
+* **Additional Columns:** `Scenario`, `Author` (not used for training)
 
-1. Data Loading
-Dataset is loaded using Pandas
-Column names are cleaned using str.strip() to avoid schema issues
-2. Text Feature Extraction
-TF-IDF Vectorizer is used to convert requirement text into numerical features
-English stop words are removed
-Both unigrams and bigrams are considered
-Maximum document frequency is limited (max_df = 0.95) to reduce noise
-3. Machine Learning Models Used
-The following models are implemented and selectable from the UI:
-Multinomial Naive Bayes
-Support Vector Machine (Linear Kernel)
-Random Forest Classifier
-Decision Tree Classifier
-Multi-Layer Perceptron (Neural Network)
+---
 
-4. Model Training
+## ⚙️ Technologies Used
 
-Data is split into 80% training and 20% testing
-Stratified sampling is applied to maintain class distribution
-Selected model is trained on TF-IDF features
-Model training is cached using Streamlit to improve performance
+* Python
+* Pandas
+* Scikit-learn
+* Streamlit
+* TF-IDF Vectorization
 
-5. Prediction
+---
 
-User enters a software requirement text
-Text is transformed using the trained TF-IDF vectorizer
-Selected model predicts the Requirement Type
-Prediction is displayed instantly in the Streamlit interface
+## 🧠 Methods and Approach
 
-📊 Output
+### 1. Data Loading
 
-Predicted requirement category based on the selected machine learning model
-Real-time response through a web-based UI
+* Dataset loaded using Pandas
+* Column names cleaned using `str.strip()` to avoid schema mismatches
 
-📌 Key Learnings
+### 2. Text Feature Extraction
 
-Importance of text preprocessing in NLP tasks
-Effectiveness of TF-IDF for requirement classification
-Performance differences between multiple ML algorithms
-Separation of ML logic and UI improves scalability and deployment
+* TF-IDF Vectorizer for converting text into numerical features
+* English stop words removed
+* Unigrams and bigrams used
+* `max_df = 0.95` applied to reduce noisy terms
 
-🚀 Future Improvements
+### 3. Machine Learning Models
 
-Display evaluation metrics (Accuracy, Precision, Recall, F1-score)
-Add model comparison visualization
-Enable dataset upload functionality
-Save and load trained models
+The following models are implemented and selectable via the Streamlit UI:
 
-Deploy the application to a cloud platform
+* Multinomial Naive Bayes
+* Support Vector Machine (Linear Kernel)
+* Random Forest Classifier
+* Decision Tree Classifier
+* Multi-Layer Perceptron (Neural Network)
+
+### 4. Model Training
+
+* Data split: **80% training / 20% testing**
+* Stratified sampling to preserve class distribution
+* Model trained on TF-IDF features
+* Training cached using Streamlit for performance optimization
+
+### 5. Prediction Workflow
+
+* User inputs a software requirement text
+* Text transformed using trained TF-IDF vectorizer
+* Selected model predicts the **Requirement Type**
+* Result displayed instantly in the Streamlit interface
+
+---
+
+## 📊 Output
+
+* Predicted requirement category based on the selected ML model
+* Real-time prediction through a web-based UI
+
+---
+
+## 📌 Key Learnings
+
+* Importance of text preprocessing in NLP tasks
+* Effectiveness of TF-IDF for software requirement classification
+* Performance variation across different ML algorithms
+* Clear separation of ML logic and UI improves scalability
+
+---
+
+## 🚀 Future Improvements
+
+* Display evaluation metrics (Accuracy, Precision, Recall, F1-score)
+* Add model comparison visualizations
+* Enable dataset upload through the UI
+* Save and load trained models
+* Deploy the application to a cloud platform
